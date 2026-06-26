@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Star Roofing - Free Roof Estimates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #003d82 0%, #0056b3 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-star {
+            font-size: 28px;
+            color: #ffc107;
+        }
+        
+        .phone-header {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            background: #ffc107;
+            color: #003d82;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background: #ffb300;
+            transform: scale(1.05);
+        }
+        
+        .services {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #003d82;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #0056b3;
+            box-shadow: 0 10px 30px rgba(0,86,179,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            color: #003d82;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .chat-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            border: 2px solid #003d82;
+        }
+        
+        .chat-container h2 {
+            color: #003d82;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .chat-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .message.bot {
+            justify-content: flex-start;
+        }
+        
+        .message.user {
+            justify-content: flex-end;
+        }
+        
+        .message-text {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .message.bot .message-text {
+            background: #003d82;
+            color: white;
+            border-radius: 8px 8px 8px 0;
+        }
+        
+        .message.user .message-text {
+            background: #e8f0ff;
+            color: #003d82;
+            border-radius: 8px 8px 0 8px;
+        }
+        
+        .chat-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input-group input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .chat-input-group button {
+            background: #003d82;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input-group button:hover {
+            background: #0056b3;
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .quick-btn {
+            background: white;
+            border: 1px solid #003d82;
+            color: #003d82;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-btn:hover {
+            background: #003d82;
+            color: white;
+        }
+        
+        .calendar-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .calendar-modal.show {
+            display: flex;
+        }
+        
+        .calendar-content {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .calendar-content h3 {
+            color: #003d82;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .calendar-slots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .calendar-slots::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .calendar-slots::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .calendar-slots::-webkit-scrollbar-thumb {
+            background: #003d82;
+            border-radius: 10px;
+        }
+        
+        .calendar-slots::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
+        
+        .slot {
+            border: 2px solid #e0e0e0;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #003d82;
+        }
+        
+        .slot:hover {
+            border-color: #003d82;
+            background: #f0f5ff;
+        }
+        
+        .slot.selected {
+            background: #003d82;
+            color: white;
+            border-color: #003d82;
+        }
+        
+        .confirmation-box {
+            background: #f0f5ff;
+            border: 1px solid #003d82;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        .confirmation-box.show {
+            display: block;
+        }
+        
+        .confirmation-box h4 {
+            color: #003d82;
+            margin-bottom: 8px;
+        }
+        
+        .confirmation-box p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        
+        .close-modal {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        .confirm-modal {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .confirm-modal:hover {
+            background: #218838;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        footer {
+            background: #003d82;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .message-text {
+                max-width: 85%;
+            }
+            
+            .calendar-slots {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-star">★</span>
+                <span>Blue Star Roofing</span>
+            </div>
+            <div class="phone-header">
+                📞 +1 253-276-6786
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Expert Roof Repairs & Replacements</h1>
+        <p>Free inspection. Professional service. Results you can trust.</p>
+        <button class="cta-button" onclick="scrollToChat()">Book Free Estimate</button>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Complete Roof Replacement</h3>
+                <p>Full roof replacement with quality materials and workmanship guaranteed</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Repairs & Leak Fixes</h3>
+                <p>Fast, reliable repairs for leaks, damaged shingles, and weather damage</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪜</div>
+                <h3>Gutter Work</h3>
+                <p>Installation, repair, and cleaning for gutters and downspouts</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Inspections</h3>
+                <p>Thorough roof inspections to catch problems before they become expensive</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chat Bot Section -->
+    <section class="chat-container" id="chatSection">
+        <h2>Schedule Your Free Inspection</h2>
+        <div class="chat-box">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-text">Hey! 👋 I'm the Blue Star Roofing booking assistant. I can help you schedule a free roof inspection. What type of service are you looking for today?</div>
+                </div>
+            </div>
+            <div class="chat-input-group">
+                <input type="text" id="userInput" placeholder="Type your response..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <button class="quick-btn" onclick="quickReply('I need a roof inspection')">Roof Inspection</button>
+            <button class="quick-btn" onclick="quickReply('Leak repair needed')">Leak Repair</button>
+            <button class="quick-btn" onclick="quickReply('Complete replacement')">Replacement</button>
+            <button class="quick-btn" onclick="quickReply('Gutter work')">Gutter Work</button>
+        </div>
+    </section>
+    
+    <!-- Calendar Modal -->
+    <div class="calendar-modal" id="calendarModal">
+        <div class="calendar-content">
+            <h3>Select Your Inspection Time</h3>
+            <div class="calendar-slots">
+                <div class="slot" onclick="selectSlot(this, 'Tuesday, 10:00 AM')">
+                    Tuesday<br>10:00 AM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Tuesday, 2:00 PM')">
+                    Tuesday<br>2:00 PM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Wednesday, 9:00 AM')">
+                    Wednesday<br>9:00 AM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Wednesday, 3:00 PM')">
+                    Wednesday<br>3:00 PM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Thursday, 10:00 AM')">
+                    Thursday<br>10:00 AM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Thursday, 1:00 PM')">
+                    Thursday<br>1:00 PM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Friday, 8:00 AM')">
+                    Friday<br>8:00 AM
+                </div>
+                <div class="slot" onclick="selectSlot(this, 'Friday, 2:00 PM')">
+                    Friday<br>2:00 PM
+                </div>
+            </div>
+            <div class="confirmation-box" id="confirmationBox">
+                <h4>Appointment Confirmed ✓</h4>
+                <p id="confirmDetails"></p>
+            </div>
+            <div class="modal-buttons">
+                <button class="close-modal" onclick="closeCalendar()">Cancel</button>
+                <button class="confirm-modal" id="confirmBtn" onclick="confirmBooking()" style="display: none;">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>Blue Star Roofing</strong></p>
+        <p>Licensed • Insured • 20+ Years Experience</p>
+        <div class="contact-info">
+            <div>📞 +1 253-276-6786</div>
+            <div>📍 Federal Way, WA</div>
+            <div>✉️ Contact via BBB</div>
+        </div>
+    </footer>
+    
+    <script>
+        let conversationState = 0; // 0=initial, 1=booking flow started, 2=got phone, 3=got address
+        let selectedSlot = null;
+        let customerPhone = '';
+        let customerAddress = '';
+        let serviceType = '';
+        
+        // Knowledge base for customer service questions - simple natural keywords
+        const knowledge = {
+            'free': 'Yes! All inspections and estimates are completely free. No obligation to hire us.',
+            'cost': 'Cost varies by roof size and repair type. We provide a free, detailed quote after inspection.',
+            'price': 'Cost varies by roof size and repair type. We provide a free, detailed quote after inspection.',
+            'deposit': 'No deposit required. You only pay after work is complete.',
+            'pay': 'No deposit required. You only pay after work is complete.',
+            'how much': 'Cost varies by roof size and repair type. We provide a free, detailed quote after inspection.',
+            'charge': 'No charge for the inspection or estimate. You only pay if you hire us for the work.',
+            'estimate': 'Free estimate. We\'ll show you exactly what needs to be done and what it costs.',
+            'inspection': 'Free inspection. We assess your roof and give you a detailed estimate.',
+            'leak': 'We fix leaks quickly. We\'ll identify the problem and give you a repair estimate.',
+            'shingle': 'We repair or replace all types of shingles — asphalt, architectural, metal, and more.',
+            'gutter': 'We install, repair, and clean gutters. Keeps water off your roof and foundation.',
+            'replacement': 'Complete roof replacements done right. We\'ll give you a detailed estimate before starting.',
+            'how long': 'Most inspections take 30-60 minutes. Repairs depend on the damage.',
+            'warranty': 'All our work is guaranteed. We back our craftsmanship 100%.',
+            'licensed': 'Yes, we\'re fully licensed and insured.',
+            'insurance': 'We work directly with insurance companies on claims.',
+            'rain': 'We inspect in rain. Wet roofs actually help us spot leaks better.',
+            'emergency': 'Call us at +1 253-276-6786 for emergency repairs.',
+        };
+        
+        function scrollToChat() {
+            document.getElementById('chatSection').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('userInput').focus();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function quickReply(text) {
+            document.getElementById('userInput').value = text;
+            sendMessage();
+        }
+        
+        function findAnswerInKnowledge(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            // Check each keyword in knowledge base
+            for (const [keyword, answer] of Object.entries(knowledge)) {
+                if (lowerMessage.includes(keyword)) {
+                    return answer;
+                }
+            }
+            
+            return null; // No matching answer found
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Add user message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'message user';
+            userMsgDiv.innerHTML = `<div class="message-text">${escapeHtml(message)}</div>`;
+            chatMessages.appendChild(userMsgDiv);
+            
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Process message and generate bot response
+            setTimeout(() => {
+                let botResponse = '';
+                
+                // FIRST, check if it's a customer service question (highest priority)
+                const knowledgeAnswer = findAnswerInKnowledge(message);
+                
+                if (knowledgeAnswer) {
+                    // Answer the customer service question - don't auto-prompt to schedule
+                    botResponse = knowledgeAnswer;
+                } else if (message.toLowerCase().includes('book') || 
+                           message.toLowerCase().includes('schedule') || 
+                           message.toLowerCase().includes('appointment') ||
+                           message.toLowerCase().includes('yes') && conversationState === 0) {
+                    // User wants to book
+                    serviceType = message;
+                    botResponse = "Great! I'd love to help you schedule a free inspection. Can I get the best phone number to reach you at?";
+                    conversationState = 1;
+                } else if (conversationState === 1) {
+                    // Got phone number
+                    if (message.match(/^\+?1?\d{10,}/) || message.match(/\d{3}[- ]?\d{3}[- ]?\d{4}/)) {
+                        customerPhone = message;
+                        botResponse = "Thanks! What's the address of the property we'll be inspecting?";
+                        conversationState = 2;
+                    } else {
+                        botResponse = "I need a valid phone number. Can you provide it again? (e.g., 253-555-0123)";
+                    }
+                } else if (conversationState === 2) {
+                    // Got address
+                    customerAddress = message;
+                    botResponse = "Perfect! Let's look at the calendar. Which time works best for you?";
+                    conversationState = 3;
+                    
+                    // Show calendar after a brief delay
+                    setTimeout(() => {
+                        openCalendar();
+                    }, 500);
+                } else if (conversationState === 0) {
+                    // Default response when no match
+                    botResponse = "I can help answer questions about our services or schedule a free inspection. What would you like to know?";
+                }
+                
+                const botMsgDiv = document.createElement('div');
+                botMsgDiv.className = 'message bot';
+                botMsgDiv.innerHTML = `<div class="message-text">${escapeHtml(botResponse)}</div>`;
+                chatMessages.appendChild(botMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 300);
+        }
+        
+        function openCalendar() {
+            document.getElementById('calendarModal').classList.add('show');
+        }
+        
+        function closeCalendar() {
+            document.getElementById('calendarModal').classList.remove('show');
+            selectedSlot = null;
+            document.querySelectorAll('.slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            document.getElementById('confirmBtn').style.display = 'none';
+            document.getElementById('confirmationBox').classList.remove('show');
+        }
+        
+        function selectSlot(element, slotTime) {
+            document.querySelectorAll('.slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedSlot = slotTime;
+            document.getElementById('confirmBtn').style.display = 'inline-block';
+        }
+        
+        function confirmBooking() {
+            if (!selectedSlot) return;
+            
+            const confirmBox = document.getElementById('confirmationBox');
+            confirmBox.classList.add('show');
+            
+            const confirmDetails = document.getElementById('confirmDetails');
+            confirmDetails.innerHTML = `
+                <p><strong>Time:</strong> ${selectedSlot}</p>
+                <p><strong>Phone:</strong> ${escapeHtml(customerPhone)}</p>
+                <p><strong>Address:</strong> ${escapeHtml(customerAddress)}</p>
+                <p style="margin-top: 10px; color: #28a745; font-weight: 600;">Confirmation text will be sent shortly!</p>
+            `;
+            
+            const confirmBtn = document.getElementById('confirmBtn');
+            confirmBtn.textContent = 'Booking Complete!';
+            confirmBtn.style.display = 'inline-block';
+            confirmBtn.onclick = function() {
+                closeCalendar();
+            };
+            
+            // Add confirmation message to chat
+            setTimeout(() => {
+                const chatMessages = document.getElementById('chatMessages');
+                const botMsgDiv = document.createElement('div');
+                botMsgDiv.className = 'message bot';
+                botMsgDiv.innerHTML = `<div class="message-text">✓ Perfect! You're all set for ${selectedSlot}. We'll send you a text confirmation shortly at ${escapeHtml(customerPhone)}. See you soon!</div>`;
+                chatMessages.appendChild(botMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
